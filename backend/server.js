@@ -3,7 +3,7 @@ import cors from 'cors';
 import db from './database.js';
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json({ limit: '50mb' })); // Increase payload limit for image uploads
@@ -92,3 +92,4 @@ app.delete('/api/users/:id', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
